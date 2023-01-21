@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/steph/Documents/AndroidStudio/ShowMemories/app/src/main/res/drawable-anydpi/ic_close_black.xml" value="0.1345" />
+        <entry key="..\:/Users/steph/Documents/AndroidStudio/ShowMemories/app/src/main/res/drawable/border.xml" value="0.176" />
+        <entry key="..\:/Users/steph/Documents/AndroidStudio/ShowMemories/app/src/main/res/drawable/ic_down_arrow.xml" value="0.157" />
+        <entry key="..\:/Users/steph/Documents/AndroidStudio/ShowMemories/app/src/main/res/drawable/ic_home_background.xml" value="0.1453125" />
+        <entry key="..\:/Users/steph/Documents/AndroidStudio/ShowMemories/app/src/main/res/drawable/ic_home_foreground.xml" value="0.1453125" />
+        <entry key="..\:/Users/steph/Documents/AndroidStudio/ShowMemories/app/src/main/res/layout/activity_add_show.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/steph/Documents/AndroidStudio/ShowMemories/app/src/main/res/layout/activity_details.xml" value="0.2" />
+        <entry key="..\:/Users/steph/Documents/AndroidStudio/ShowMemories/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/Users/steph/Documents/AndroidStudio/ShowMemories/app/src/main/res/layout/fragment_add_show.xml" value="0.2" />
+        <entry key="..\:/Users/steph/Documents/AndroidStudio/ShowMemories/app/src/main/res/layout/fragment_collection.xml" value="0.11018518518518519" />
+        <entry key="..\:/Users/steph/Documents/AndroidStudio/ShowMemories/app/src/main/res/layout/fragment_home.xml" value="0.264" />
+        <entry key="..\:/Users/steph/Documents/AndroidStudio/ShowMemories/app/src/main/res/layout/fragment_profile.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/steph/Documents/AndroidStudio/ShowMemories/app/src/main/res/layout/item_add_season.xml" value="0.25" />
+        <entry key="..\:/Users/steph/Documents/AndroidStudio/ShowMemories/app/src/main/res/layout/item_season.xml" value="0.264" />
+        <entry key="..\:/Users/steph/Documents/AndroidStudio/ShowMemories/app/src/main/res/layout/item_show.xml" value="0.264" />
+        <entry key="..\:/Users/steph/Documents/AndroidStudio/ShowMemories/app/src/main/res/layout/popup_add_season.xml" value="0.21422101449275363" />
+        <entry key="..\:/Users/steph/Documents/AndroidStudio/ShowMemories/app/src/main/res/layout/popup_show_details.xml" value="0.264" />
+        <entry key="..\:/Users/steph/Documents/AndroidStudio/ShowMemories/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.2" />
+        <entry key="..\:/Users/steph/Documents/AndroidStudio/ShowMemories/app/src/main/res/menu/show_management_menu.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/steph/Documents/AndroidStudio/ShowMemories/app/src/main/res/mipmap-anydpi-v26/ic_home_round.xml" value="0.14895833333333333" />
+        <entry key="..\:/Users/steph/Documents/Workspaces/AndroidStudio/ShowMemories/accordionlayout/src/main/res/drawable/accordion_background.xml" value="0.143" />
+        <entry key="..\:/Users/steph/Documents/Workspaces/AndroidStudio/ShowMemories/accordionlayout/src/main/res/drawable/ic_arrow_drop_down.xml" value="0.143" />
+        <entry key="..\:/Users/steph/Documents/Workspaces/AndroidStudio/ShowMemories/accordionlayout/src/main/res/drawable/ic_arrow_drop_up_black_24dp.xml" value="0.143" />
+        <entry key="..\:/Users/steph/Documents/Workspaces/AndroidStudio/ShowMemories/accordionlayout/src/main/res/layout/accordion.xml" value="0.12360688956433637" />
+        <entry key="..\:/Users/steph/Documents/Workspaces/AndroidStudio/ShowMemories/accordionlayout/src/main/res/layout/image_title_description_layout.xml" value="0.25" />
+        <entry key="..\:/Users/steph/Documents/Workspaces/AndroidStudio/ShowMemories/accordionlayout/src/main/res/layout/title_description_layout.xml" value="0.25" />
+        <entry key="..\:/Users/steph/Documents/Workspaces/AndroidStudio/ShowMemories/accordionlayout/src/main/res/layout/title_layout.xml" value="0.25" />
+        <entry key="..\:/Users/steph/Documents/Workspaces/AndroidStudio/ShowMemories/accordionview/src/main/res/drawable/accordion_background.xml" value="0.143" />
+        <entry key="..\:/Users/steph/Documents/Workspaces/AndroidStudio/ShowMemories/accordionview/src/main/res/drawable/ic_arrow_drop_down_black_24dp.xml" value="0.143" />
+        <entry key="..\:/Users/steph/Documents/Workspaces/AndroidStudio/ShowMemories/accordionview/src/main/res/drawable/ic_arrow_drop_up_black_24dp.xml" value="0.143" />
+        <entry key="..\:/Users/steph/Documents/Workspaces/AndroidStudio/ShowMemories/accordionview/src/main/res/layout/accordion.xml" value="0.25" />
+        <entry key="..\:/Users/steph/Documents/Workspaces/AndroidStudio/ShowMemories/app/src/main/res/drawable-anydpi/ic_close.xml" value="0.143" />
+        <entry key="..\:/Users/steph/Documents/Workspaces/AndroidStudio/ShowMemories/app/src/main/res/drawable-anydpi/ic_close_black.xml" value="0.143" />
+        <entry key="..\:/Users/steph/Documents/Workspaces/AndroidStudio/ShowMemories/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.143" />
+        <entry key="..\:/Users/steph/Documents/Workspaces/AndroidStudio/ShowMemories/app/src/main/res/drawable-xhdpi/accordion_background.xml" value="0.143" />
+        <entry key="..\:/Users/steph/Documents/Workspaces/AndroidStudio/ShowMemories/app/src/main/res/drawable/accordion_background.xml" value="0.143" />
+        <entry key="..\:/Users/steph/Documents/Workspaces/AndroidStudio/ShowMemories/app/src/main/res/drawable/alphabetical_sort_image_selector.xml" value="0.143" />
+        <entry key="..\:/Users/steph/Documents/Workspaces/AndroidStudio/ShowMemories/app/src/main/res/drawable/background_sort_icons.xml" value="0.143" />
+        <entry key="..\:/Users/steph/Documents/Workspaces/AndroidStudio/ShowMemories/app/src/main/res/drawable/border.xml" value="0.143" />
+        <entry key="..\:/Users/steph/Documents/Workspaces/AndroidStudio/ShowMemories/app/src/main/res/drawable/border_error.xml" value="0.143" />
+        <entry key="..\:/Users/steph/Documents/Workspaces/AndroidStudio/ShowMemories/app/src/main/res/drawable/border_red.xml" value="0.1465" />
+        <entry key="..\:/Users/steph/Documents/Workspaces/AndroidStudio/ShowMemories/app/src/main/res/drawable/ic_abc.xml" value="0.143" />
+        <entry key="..\:/Users/steph/Documents/Workspaces/AndroidStudio/ShowMemories/app/src/main/res/drawable/ic_add.xml" value="0.143" />
+        <entry key="..\:/Users/steph/Documents/Workspaces/AndroidStudio/ShowMemories/app/src/main/res/drawable/ic_arrow.xml" value="0.1465" />
+        <entry key="..\:/Users/steph/Documents/Workspaces/AndroidStudio/ShowMemories/app/src/main/res/drawable/ic_arrow_close.xml" value="0.143" />
+        <entry key="..\:/Users/steph/Documents/Workspaces/AndroidStudio/ShowMemories/app/src/main/res/drawable/ic_arrow_drop_down.xml" value="0.143" />
+        <entry key="..\:/Users/steph/Documents/Workspaces/AndroidStudio/ShowMemories/app/src/main/res/drawable/ic_arrow_drop_down_black_24dp.xml" value="0.143" />
+        <entry key="..\:/Users/steph/Documents/Workspaces/AndroidStudio/ShowMemories/app/src/main/res/drawable/ic_arrow_drop_up_black_24dp.xml" value="0.143" />
+        <entry key="..\:/Users/steph/Documents/Workspaces/AndroidStudio/ShowMemories/app/src/main/res/drawable/ic_capture_removebg_preview.xml" value="0.143" />
+        <entry key="..\:/Users/steph/Documents/Workspaces/AndroidStudio/ShowMemories/app/src/main/res/drawable/ic_crossed_out_eye.xml" value="0.143" />
+        <entry key="..\:/Users/steph/Documents/Workspaces/AndroidStudio/ShowMemories/app/src/main/res/drawable/ic_delete.xml" value="0.1465" />
+        <entry key="..\:/Users/steph/Documents/Workspaces/AndroidStudio/ShowMemories/app/src/main/res/drawable/ic_down_arrow.xml" value="0.1465" />
+        <entry key="..\:/Users/steph/Documents/Workspaces/AndroidStudio/ShowMemories/app/src/main/res/drawable/ic_edit.xml" value="0.143" />
+        <entry key="..\:/Users/steph/Documents/Workspaces/AndroidStudio/ShowMemories/app/src/main/res/drawable/ic_error.xml" value="0.1465" />
+        <entry key="..\:/Users/steph/Documents/Workspaces/AndroidStudio/ShowMemories/app/src/main/res/drawable/ic_eye.xml" value="0.143" />
+        <entry key="..\:/Users/steph/Documents/Workspaces/AndroidStudio/ShowMemories/app/src/main/res/drawable/ic_eye_slash_solid.xml" value="0.143" />
+        <entry key="..\:/Users/steph/Documents/Workspaces/AndroidStudio/ShowMemories/app/src/main/res/drawable/ic_eye_svgrepo_com.xml" value="0.143" />
+        <entry key="..\:/Users/steph/Documents/Workspaces/AndroidStudio/ShowMemories/app/src/main/res/drawable/ic_eye_svgrepo_com_1_.xml" value="0.143" />
+        <entry key="..\:/Users/steph/Documents/Workspaces/AndroidStudio/ShowMemories/app/src/main/res/drawable/ic_ff.xml" value="0.143" />
+        <entry key="..\:/Users/steph/Documents/Workspaces/AndroidStudio/ShowMemories/app/src/main/res/drawable/ic_half_star.xml" value="0.143" />
+        <entry key="..\:/Users/steph/Documents/Workspaces/AndroidStudio/ShowMemories/app/src/main/res/drawable/ic_home.xml" value="0.143" />
+        <entry key="..\:/Users/steph/Documents/Workspaces/AndroidStudio/ShowMemories/app/src/main/res/drawable/ic_home_background.xml" value="0.143" />
+        <entry key="..\:/Users/steph/Documents/Workspaces/AndroidStudio/ShowMemories/app/src/main/res/drawable/ic_home_foreground.xml" value="0.143" />
+        <entry key="..\:/Users/steph/Documents/Workspaces/AndroidStudio/ShowMemories/app/src/main/res/drawable/ic_launcher_background.xml" value="0.143" />
+        <entry key="..\:/Users/steph/Documents/Workspaces/AndroidStudio/ShowMemories/app/src/main/res/drawable/ic_line_alt_svgrepo_com.xml" value="0.143" />
+        <entry key="..\:/Users/steph/Documents/Workspaces/AndroidStudio/ShowMemories/app/src/main/res/drawable/ic_more.xml" value="0.143" />
+        <entry key="..\:/Users/steph/Documents/Workspaces/AndroidStudio/ShowMemories/app/src/main/res/drawable/ic_new_star.xml" value="0.143" />
+        <entry key="..\:/Users/steph/Documents/Workspaces/AndroidStudio/ShowMemories/app/src/main/res/drawable/ic_profile.xml" value="0.143" />
+        <entry key="..\:/Users/steph/Documents/Workspaces/AndroidStudio/ShowMemories/app/src/main/res/drawable/ic_reverse_abc.xml" value="0.143" />
+        <entry key="..\:/Users/steph/Documents/Workspaces/AndroidStudio/ShowMemories/app/src/main/res/drawable/ic_star.xml" value="0.143" />
+        <entry key="..\:/Users/steph/Documents/Workspaces/AndroidStudio/ShowMemories/app/src/main/res/drawable/ic_watch.xml" value="0.143" />
+        <entry key="..\:/Users/steph/Documents/Workspaces/AndroidStudio/ShowMemories/app/src/main/res/drawable/icon_abc_sort.xml" value="0.143" />
+        <entry key="..\:/Users/steph/Documents/Workspaces/AndroidStudio/ShowMemories/app/src/main/res/drawable/icon_note_sort.xml" value="0.143" />
+        <entry key="..\:/Users/steph/Documents/Workspaces/AndroidStudio/ShowMemories/app/src/main/res/drawable/icon_watch_date_sort.xml" value="0.143" />
+        <entry key="..\:/Users/steph/Documents/Workspaces/AndroidStudio/ShowMemories/app/src/main/res/drawable/note_sort_image_selector.xml" value="0.143" />
+        <entry key="..\:/Users/steph/Documents/Workspaces/AndroidStudio/ShowMemories/app/src/main/res/drawable/sort_alphabetic_image_selector.xml" value="0.143" />
+        <entry key="..\:/Users/steph/Documents/Workspaces/AndroidStudio/ShowMemories/app/src/main/res/drawable/sort_icons_background_selector.xml" value="0.143" />
+        <entry key="..\:/Users/steph/Documents/Workspaces/AndroidStudio/ShowMemories/app/src/main/res/drawable/sort_note_image_selector.xml" value="0.143" />
+        <entry key="..\:/Users/steph/Documents/Workspaces/AndroidStudio/ShowMemories/app/src/main/res/drawable/sort_watch_date_image_selector.xml" value="0.143" />
+        <entry key="..\:/Users/steph/Documents/Workspaces/AndroidStudio/ShowMemories/app/src/main/res/drawable/watch_date_sort_image_selector.xml" value="0.143" />
+        <entry key="..\:/Users/steph/Documents/Workspaces/AndroidStudio/ShowMemories/app/src/main/res/layout/accordion.xml" value="0.25" />
+        <entry key="..\:/Users/steph/Documents/Workspaces/AndroidStudio/ShowMemories/app/src/main/res/layout/accordion_view.xml" value="0.25" />
+        <entry key="..\:/Users/steph/Documents/Workspaces/AndroidStudio/ShowMemories/app/src/main/res/layout/activity_add_season.xml" value="0.14635416666666667" />
+        <entry key="..\:/Users/steph/Documents/Workspaces/AndroidStudio/ShowMemories/app/src/main/res/layout/activity_add_show.xml" value="0.18548387096774194" />
+        <entry key="..\:/Users/steph/Documents/Workspaces/AndroidStudio/ShowMemories/app/src/main/res/layout/activity_details.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/steph/Documents/Workspaces/AndroidStudio/ShowMemories/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/steph/Documents/Workspaces/AndroidStudio/ShowMemories/app/src/main/res/layout/content_add_season.xml" value="0.25" />
+        <entry key="..\:/Users/steph/Documents/Workspaces/AndroidStudio/ShowMemories/app/src/main/res/layout/fragment_collection.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/steph/Documents/Workspaces/AndroidStudio/ShowMemories/app/src/main/res/layout/fragment_filter.xml" value="0.3088803088803089" />
+        <entry key="..\:/Users/steph/Documents/Workspaces/AndroidStudio/ShowMemories/app/src/main/res/layout/fragment_first.xml" value="0.25" />
+        <entry key="..\:/Users/steph/Documents/Workspaces/AndroidStudio/ShowMemories/app/src/main/res/layout/fragment_home.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/steph/Documents/Workspaces/AndroidStudio/ShowMemories/app/src/main/res/layout/fragment_profile.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/steph/Documents/Workspaces/AndroidStudio/ShowMemories/app/src/main/res/layout/image_description_layout.xml" value="0.25" />
+        <entry key="..\:/Users/steph/Documents/Workspaces/AndroidStudio/ShowMemories/app/src/main/res/layout/item_add_name.xml" value="0.253125" />
+        <entry key="..\:/Users/steph/Documents/Workspaces/AndroidStudio/ShowMemories/app/src/main/res/layout/item_add_season.xml" value="0.264" />
+        <entry key="..\:/Users/steph/Documents/Workspaces/AndroidStudio/ShowMemories/app/src/main/res/layout/item_season.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/steph/Documents/Workspaces/AndroidStudio/ShowMemories/app/src/main/res/layout/item_show.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/steph/Documents/Workspaces/AndroidStudio/ShowMemories/app/src/main/res/layout/popup_add_season.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/steph/Documents/Workspaces/AndroidStudio/ShowMemories/app/src/main/res/layout/title_description_layout.xml" value="0.25" />
+        <entry key="..\:/Users/steph/Documents/Workspaces/AndroidStudio/ShowMemories/app/src/main/res/layout/title_layout.xml" value="0.25" />
+        <entry key="..\:/Users/steph/Documents/Workspaces/AndroidStudio/ShowMemories/app/src/main/res/layout/vds.xml" value="0.253125" />
+        <entry key="..\:/Users/steph/Documents/Workspaces/AndroidStudio/ShowMemories/app/src/main/res/layout/vfd.xml" value="0.25" />
+        <entry key="..\:/Users/steph/Documents/Workspaces/AndroidStudio/ShowMemories/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/steph/Documents/Workspaces/AndroidStudio/ShowMemories/app/src/main/res/menu/search_menu.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/steph/Documents/Workspaces/AndroidStudio/ShowMemories/app/src/main/res/menu/show_management_menu.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/steph/Documents/Workspaces/AndroidStudio/ShowMemories1/app/src/main/res/layout/popup_add_season.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/steph/Documents/Workspaces/AndroidStudio/ShowMemories1/app/src/main/res/layout/vsf.xml" value="0.253125" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

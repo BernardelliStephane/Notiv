@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="fr.steph.showmemories.viewmodels.AddSeasonViewModel" />
+
+        <variable
+            name="isNew"
+            type="Boolean" />
+    </data>
+
+    <fr.steph.accordionlayout.AccordionLayout
+        android:id="@+id/add_show_season_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        app:headingColor="@{viewModel.uiState.nameErrorRes != null || viewModel.uiState.noteErrorRes != null || (viewModel.uiState.movie == true &amp;&amp; viewModel.uiState.durationErrorRes != null) || (!viewModel.uiState.movie &amp;&amp; viewModel.uiState.episodeCountErrorRes != null) ? @color/red : @android:color/tab_indicator_text}"
+        app:headingDrawable="@drawable/ic_close_black"
+        app:headingDrawableHeight="20dp"
+        app:headingDrawableWidth="20dp"
+        app:headingString="@{viewModel.uiState.movie ? isNew ? @string/movie_add_header : viewModel.uiState.name : isNew ? @string/season_add_header : `Saison` + viewModel.uiState.name}"
+        app:isAnimated="true"
+        app:isExpanded="false"
+        app:isPartitioned="false"
+        tools:headingString="@string/season_add_header">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
+
+                <CheckBox
+                    android:id="@+id/add_show_season_movie_checkbox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:layout_toEndOf="@id/add_show_season_movie_checkbox"
+                    android:text="@string/movie_checkbox"
+                    android:textSize="10sp"
+                    android:textStyle="italic"
+                    tools:ignore="SmallSp" />
+
+            </RelativeLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/default_margin"
+                android:hint="@{viewModel.uiState.movie ? @string/movie_title : @string/season_number}"
+                app:errorRes="@{viewModel.uiState.nameErrorRes}"
+                app:errorEnabled="true"
+                tools:hint="@string/season_number">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/add_show_season_title_input"
+                    inputType='@{viewModel.uiState.movie ? "cap_words" : "number"}'
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.uiState.name}" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/default_margin"
+                android:hint="@{viewModel.uiState.movie ? @string/movie_duration : @string/season_episode_count}"
+                app:errorRes="@{viewModel.uiState.movie ? viewModel.uiState.durationErrorRes : viewModel.uiState.episodeCountErrorRes}"
+                app:errorEnabled="true"
+                tools:hint="@string/season_episode_count">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/add_show_season_duration_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:text="@{viewModel.uiState.movie ? viewModel.uiState.movieDuration : viewModel.uiState.episodeCount}" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@{viewModel.uiState.movie ? @string/movie_note : @string/season_note}"
+                app:errorRes="@{viewModel.uiState.noteErrorRes}"
+                app:errorEnabled="true"
+                tools:hint="@string/season_note">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/add_show_season_note_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:text="@{viewModel.uiState.note}" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/default_margin"
+                android:importantForAutofill="no"
+                android:text="@string/show_date" />
+
+            <DatePicker
+                android:id="@+id/add_show_season_watch_date_input"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:calendarViewShown="false"
+                android:datePickerMode="spinner" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/default_margin"
+                android:hint="@{viewModel.uiState.movie ? @string/movie_summary : @string/season_summary}"
+                tools:hint="@string/season_summary">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/add_show_season_summary_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textMultiLine|textLongMessage"
+                    android:text="@{viewModel.uiState.summary}" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/default_margin"
+                android:hint="@{viewModel.uiState.movie ? @string/movie_review : @string/season_review}"
+                tools:hint="@string/season_review">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/add_show_season_review_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textMultiLine|textLongMessage"
+                    android:text="@{viewModel.uiState.review}" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+    </fr.steph.accordionlayout.AccordionLayout>
+
+</layout>

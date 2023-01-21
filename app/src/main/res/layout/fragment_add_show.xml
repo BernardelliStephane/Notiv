@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="fr.steph.showmemories.viewmodels.AddShowViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:id="@+id/add_show_scroll"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/default_margin"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/add_show_layout_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/default_margin"
+                    android:background="@{viewModel.uiState.imageErrorRes == null ? @drawable/border : @drawable/border_error}"
+                    tools:background="@drawable/border">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/show_input_image"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:visibility="@{viewModel.uiState.imageUrl.isEmpty()}" />
+
+                    <ImageView
+                        android:id="@+id/add_show_preview_image"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:adjustViewBounds="true"
+                        android:contentDescription="@string/add_show_preview_image_description"
+                        android:minHeight="100dp"
+                        android:scaleType="fitCenter"
+                        app:imageUrl="@{viewModel.uiState.imageUrl}"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:placeholder="@{@drawable/default_image}" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/default_margin"
+                    android:hint="@string/show_name"
+                    app:errorEnabled="true"
+                    app:errorRes="@{viewModel.uiState.nameErrorRes}">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/add_show_name_input"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textCapWords"
+                        android:text="@{viewModel.uiState.name}" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <LinearLayout
+                    android:id="@+id/add_show_names_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/add_show_add_name_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/default_margin">
+
+                    <TextView
+                        android:id="@+id/add_show_add_name_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/add_name"
+                        app:layout_constraintEnd_toStartOf="@id/add_show_add_name_icon"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageButton
+                        android:id="@+id/add_show_add_name_icon"
+                        android:layout_width="20sp"
+                        android:layout_height="20sp"
+                        android:backgroundTint="@color/white"
+                        android:contentDescription="@string/add_alternate_name_icon_description"
+                        android:src="@drawable/ic_add"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/add_show_add_name_text"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/item_margin"
+                    android:hint="@string/show_note"
+                    app:errorEnabled="true"
+                    app:errorRes="@{viewModel.uiState.noteErrorRes}">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/add_show_note_input"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="numberDecimal"
+                        android:text="@{viewModel.uiState.note}" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/add_show_watch_date_input_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/default_margin"
+                    android:text="@string/show_date" />
+
+                <DatePicker
+                    android:id="@+id/add_show_watch_date_input"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:calendarViewShown="false"
+                    android:datePickerMode="spinner" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/default_margin"
+                    android:hint="@string/show_synopsis">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/add_show_synopsis_input"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textMultiLine|textLongMessage"
+                        android:text="@{viewModel.uiState.synopsis}" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/default_margin"
+                    android:layout_marginBottom="@dimen/default_margin"
+                    android:hint="@string/show_review">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/add_show_review_input"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textMultiLine|textLongMessage"
+                        android:text="@{viewModel.uiState.review}" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <LinearLayout
+                    android:id="@+id/add_show_seasons_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/add_show_add_season_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/default_margin">
+
+                    <TextView
+                        android:id="@+id/add_show_add_season_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/add_season"
+                        app:layout_constraintEnd_toStartOf="@id/add_show_add_season_icon"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageButton
+                        android:id="@+id/add_show_add_season_icon"
+                        android:layout_width="20sp"
+                        android:layout_height="20sp"
+                        android:backgroundTint="@color/white"
+                        android:contentDescription="@string/add_season_icon_description"
+                        android:src="@drawable/ic_add"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/add_show_add_season_text"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <Button
+                    android:id="@+id/add_show_confirm_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:layout_marginTop="@dimen/default_margin"
+                    android:background="@color/cardview_dark_background"
+                    android:text="@string/confirm_button"
+                    android:textColor="@color/white"
+                    android:textSize="24sp" />
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:visibility="@{viewModel.uiState.isSubmitting}"
+            tools:visibility="gone" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

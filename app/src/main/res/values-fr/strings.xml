@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Navigation bar -->
+    <string name="title_home">Accueil</string>
+    <string name="title_collection">Collection</string>
+    <string name="title_profile">Profil</string>
+
+    <!-- Default values -->
+    <string name="default_name">Classroom Of The Elite</string>
+    <string name="default_note">10/10</string>
+    <string name="default_date">11/12/2019</string>
+    <string name="default_number">0</string>
+    <string name="no_synopsis">Pas de synopsis disponible</string>
+    <string name="no_summary">Pas de résumé disponible</string>
+    <string name="no_review">Pas d\'avis disponible</string>
+    <string name="empty_collection">Votre collection est vide</string>
+    <string name="no_result">Aucun résultat</string>
+
+    <!-- Show titles -->
+    <string name="show_name">Nom de la série</string>
+    <string name="show_alternate_name">Nom alternatif</string>
+    <string name="show_note">Note de la série</string>
+    <string name="show_date">Date de visionnage</string>
+    <string name="show_synopsis">Synopsis de la série</string>
+    <string name="show_review">Avis sur la série</string>
+
+    <!-- Season titles -->
+    <string name="season_header">Saison 1</string>
+    <string name="season_add_header">Ajout de saison</string>
+    <string name="movie_add_header">Ajout de film</string>
+    <string name="season_number">Numéro de la saison</string>
+    <string name="movie_title">Titre du film</string>
+    <string name="season_episode_count">Nombre d\'épisodes</string>
+    <string name="movie_duration">Durée du film (en minutes)</string>
+    <string name="movie_duration_title">Durée du film</string>
+    <string name="season_note">Note de la saison</string>
+    <string name="movie_note">Note du film</string>
+    <string name="season_date_text">Vu le&#160;</string>
+    <string name="season_summary">Résumé de la saison</string>
+    <string name="movie_summary">Résumé du film</string>
+    <string name="season_review">Avis sur la saison</string>
+    <string name="movie_review">Avis sur le film</string>
+
+    <!-- Profile titles -->
+    <string name="statistics">Statistiques</string>
+    <string name="show_count">Nombre de séries regardées</string>
+
+    <!-- Buttons texts -->
+    <string name="show_input_image">Insérer une image</string>
+    <string name="confirm_button">Confirmer</string>
+    <string name="cancel_button">Annuler</string>
+    <string name="edit">Modifier</string>
+    <string name="delete">Supprimer</string>
+    <string name="settings">Paramètres</string>
+    <string name="retry">Réessayer</string>
+    <string name="add_show">Ajouter une série</string>
+    <string name="add_season">Ajouter une saison</string>
+    <string name="add_name">Ajouter un nom alternatif</string>
+    <string name="movie_checkbox">Cocher dans le cas d\'un film</string>
+    <string name="query_hint">Rechercher…</string>
+
+    <!-- Alert dialogs -->
+    <string name="show_suppression_confirmation">Souhaitez-vous vraiment supprimer cette série ?</string>
+    <string name="movie_suppression_confirmation">Souhaitez-vous vraiment supprimer ce film ?</string>
+    <string name="season_suppression_confirmation">Souhaitez-vous vraiment supprimer cette saison ?</string>
+
+    <!-- Toasts -->
+    <string name="show_addition_success">Série ajoutée</string>
+    <string name="show_addition_failure">Une erreur est survenue lors de l\'ajout de la série</string>
+    <string name="show_update_success">Série modifiée</string>
+    <string name="show_update_failure">Une erreur est survenue lors de la modification de la série</string>
+    <string name="show_deletion_success">Série supprimée</string>
+    <string name="show_deletion_failure">Une erreur est survenue lors de la suppression de la série</string>
+    <string name="season_addition_success">Saison ajoutée</string>
+    <string name="movie_addition_success">Film ajouté</string>
+    <string name="season_addition_failure">Une erreur est survenue lors de l\'ajout de la saison</string>
+    <string name="movie_addition_failure">Une erreur est survenue lors de l\'ajout du film</string>
+    <string name="season_update_success">Saison modifiée</string>
+    <string name="movie_update_success">Film modifié</string>
+    <string name="season_update_failure">Une erreur est survenue lors de la modification de la saison</string>
+    <string name="movie_update_failure">Une erreur est survenue lors de la modification du film</string>
+    <string name="season_deletion_success">Saison supprimée</string>
+    <string name="movie_deletion_success">Film supprimé</string>
+    <string name="season_deletion_failure">Une erreur est survenue lors de la suppression de la saison</string>
+    <string name="movie_deletion_failure">Une erreur est survenue lors de la suppression du film</string>
+    <string name="image_upload_failure">Une erreur est survenue lors de la mise en ligne de l\'image</string>
+    <string name="show_fetching_failure">Une erreur est survenue lors de la récupération des séries</string>
+    <string name="no_internet_connexion">Aucune connexion détectée</string>
+
+    <!-- Form errors -->
+    <string name="mandatory_field_error">Ce champ est obligatoire</string>
+    <string name="form_incorrect_filling">Le formulaire n\'a pas été correctement renseigné</string>
+    <string name="incorrect_note_field_error">Veuillez entrer une valeur comprise entre 0 et 10</string>
+
+    <!-- Content descriptions -->
+    <string name="abc_sort_icon_description">Trier par ordre alphabétique</string>
+    <string name="note_sort_icon_description">Trier par note</string>
+    <string name="watch_date_sort_icon_description">Trier par date de visionnage</string>
+    <string name="show_image_description">Image de la série</string>
+    <string name="close_details_icon_description">Fermer la page de détails</string>
+    <string name="close_popup_icon_description">Fermer la page d\'ajout de saison</string>
+    <string name="add_show_preview_image_description">Aperçu de l\'image</string>
+    <string name="add_alternate_name_icon_description">Ajouter un nom alternatif</string>
+    <string name="add_season_icon_description">Ajouter une saison</string>
+    <string name="show_management_options_icon">Gérer la série</string>
+
+</resources>

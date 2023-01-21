@@ -1,0 +1,119 @@
+<resources>
+    <string name="app_name" translatable="false">Show memories</string>
+
+    <!-- Navigation bar -->
+    <string name="title_home">Home</string>
+    <string name="title_collection">Collection</string>
+    <string name="title_profile">Profile</string>
+
+    <!-- Default values -->
+    <string name="default_name">Classroom Of The Elite</string>
+    <string name="default_note">10/10</string>
+    <string name="default_date">2019/12/11</string>
+    <string name="default_number">0</string>
+    <string name="no_synopsis">No synopsis available</string>
+    <string name="no_summary">No summary available</string>
+    <string name="no_review">No review available</string>
+    <string name="empty_collection">Your collection is empty</string>
+    <string name="no_result">No results</string>
+
+    <!-- Values -->
+    <string name="note" translatable="false">%1$d/10</string>
+
+    <!-- Show titles -->
+    <string name="show_name">Show name</string>
+    <string name="show_alternate_name">Alternate name</string>
+    <string name="show_note">Show note</string>
+    <string name="show_date">Watch date</string>
+    <string name="show_synopsis">Show synopsis</string>
+    <string name="show_review">Show review</string>
+
+    <!-- Season titles -->
+    <string name="season_header">Season 1</string>
+    <string name="season_add_header">Season addition</string>
+    <string name="movie_add_header">Movie addition</string>
+    <string name="season_number">Season number</string>
+    <string name="movie_title">Movie title</string>
+    <string name="season_episode_count">Number of episodes</string>
+    <string name="movie_duration">Movie duration (in minutes)</string>
+    <string name="movie_duration_title">Movie duration</string>
+    <string name="season_note">Season note</string>
+    <string name="movie_note">Movie note</string>
+    <string name="season_date_text">Watched on&#160;</string>
+    <string name="season_summary">Season summary</string>
+    <string name="movie_summary">Movie summary</string>
+    <string name="season_review">Season review</string>
+    <string name="movie_review">Movie review</string>
+
+    <!-- Profile titles -->
+    <string name="statistics">Statistics</string>
+    <string name="show_count">Number of shows watched</string>
+
+    <!-- Buttons texts -->
+    <string name="show_input_image">Insert image</string>
+    <string name="confirm_button">Confirm</string>
+    <string name="delete">Delete</string>
+    <string name="edit">Edit</string>
+    <string name="settings">Settings</string>
+    <string name="retry">Retry</string>
+    <string name="cancel_button">Cancel</string>
+    <string name="add_show">Add show</string>
+    <string name="add_season">Add season</string>
+    <string name="add_name">Add alternate name</string>
+    <string name="movie_checkbox">Check in the case of a movie</string>
+    <string name="query_hint">Search…</string>
+
+    <!-- Alert dialogs -->
+    <string name="show_suppression_confirmation">Do you really want to delete this show?</string>
+    <string name="movie_suppression_confirmation">Do you really want to delete this movie?</string>
+    <string name="season_suppression_confirmation">Do you really want to delete this season?</string>
+
+    <!-- Toasts -->
+    <string name="show_addition_success">Show added</string>
+    <string name="show_addition_failure">An error occurred while adding the show</string>
+    <string name="show_update_success">Show updated</string>
+    <string name="show_update_failure">An error occurred while updating the show</string>
+    <string name="show_deletion_success">Show deleted</string>
+    <string name="show_deletion_failure">An error occurred while deleting the show</string>
+    <string name="season_addition_success">Season added</string>
+    <string name="movie_addition_success">Movie added</string>
+    <string name="season_addition_failure">An error occurred while adding the season</string>
+    <string name="movie_addition_failure">An error occurred while adding the movie</string>
+    <string name="season_update_success">Season updated</string>
+    <string name="movie_update_success">Movie updated</string>
+    <string name="season_update_failure">An error occurred while updating the season</string>
+    <string name="movie_update_failure">An error occurred while updating the movie</string>
+    <string name="season_deletion_success">Season deleted</string>
+    <string name="movie_deletion_success">Movie deleted</string>
+    <string name="season_deletion_failure">An error occurred while deleting the season</string>
+    <string name="movie_deletion_failure">An error occurred while deleting the movie</string>
+    <string name="image_upload_failure">An error occurred while uploading the image</string>
+    <string name="show_fetching_failure">An error occurred while fetching the shows</string>
+    <string name="no_internet_connexion">No connexion detected</string>
+
+    <!-- Form errors -->
+    <string name="mandatory_field_error">This field is mandatory</string>
+    <string name="incorrect_note_field_error">Please enter value between 0 and 10</string>
+    <string name="form_incorrect_filling">The form was not filled in correctly</string>
+
+    <!-- Content descriptions -->
+    <string name="abc_sort_icon_description">Sort alphabetically</string>
+    <string name="note_sort_icon_description">Sort by note</string>
+    <string name="watch_date_sort_icon_description">Sort by watch date</string>
+    <string name="show_image_description">Show image</string>
+    <string name="close_details_icon_description">Close details page</string>
+    <string name="close_popup_icon_description">Close season addition page</string>
+    <string name="add_show_preview_image_description">Preview image</string>
+    <string name="add_alternate_name_icon_description">Add alternate name</string>
+    <string name="add_season_icon_description">Add season</string>
+    <string name="show_management_options_icon">Manage show</string>
+
+    <!-- Transition names -->
+    <string name="show_recycler_view_image_transition" translatable="false">show_recyclerview_image %s</string>
+    <string name="show_details_image_transition" translatable="false">show_details_image</string>
+    <string name="tmdbtv_recycler_view_image_transition" translatable="false">tmdbtv_recyclerview_image %s</string>
+    <string name="tmdbtv_details_image_transition" translatable="false">tmdbtv_details_image</string>
+
+    <string name="tmdb_image_path" translatable="false">https://image.tmdb.org/t/p/w500/%1$s</string>
+
+</resources>

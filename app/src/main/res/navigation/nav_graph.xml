@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="fr.steph.showmemories.fragments.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home">
+
+        <action
+            android:id="@+id/action_navigation_home_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+
+        <action
+            android:id="@+id/action_navigation_home_to_addShowFragment"
+            app:destination="@id/addShowFragment"
+            app:enterAnim="@anim/slide_in_bottom"
+            app:popExitAnim="@anim/slide_out_bottom" />
+
+        <action
+            android:id="@+id/action_navigation_home_to_discoverFragment"
+            app:destination="@id/discoverFragment" />
+
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/navigation_collection"
+        android:name="fr.steph.showmemories.fragments.CollectionFragment"
+        android:label="@string/title_collection"
+        tools:layout="@layout/fragment_collection">
+
+        <action
+            android:id="@+id/action_navigation_collection_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+
+        <action
+            android:id="@+id/action_navigation_collection_to_addShowFragment"
+            app:destination="@id/addShowFragment"
+            app:enterAnim="@anim/slide_in_bottom"
+            app:popExitAnim="@anim/slide_out_bottom" />
+
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="fr.steph.showmemories.fragments.ProfileFragment"
+        android:label="@string/title_profile"
+        tools:layout="@layout/fragment_profile" />
+
+
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="fr.steph.showmemories.fragments.DetailsFragment"
+        android:label="DetailsFragment"
+        tools:layout="@layout/fragment_details">
+
+        <argument
+            android:name="show"
+            app:argType="fr.steph.showmemories.models.ShowModel" />
+
+        <action
+            android:id="@+id/action_detailsFragment_to_addSeasonFragment"
+            app:destination="@id/addSeasonFragment"
+            app:enterAnim="@anim/slide_in_bottom"
+            app:popExitAnim="@anim/slide_out_bottom" />
+
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/addSeasonFragment"
+        android:name="fr.steph.showmemories.fragments.AddSeasonFragment"
+        android:label="AddSeasonFragment"
+        tools:layout="@layout/fragment_add_season">
+
+        <argument
+            android:name="show"
+            app:argType="fr.steph.showmemories.models.ShowModel" />
+
+        <argument
+            android:name="season"
+            app:argType="fr.steph.showmemories.models.SeasonModel"
+            app:nullable="true" />
+
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/addShowFragment"
+        android:name="fr.steph.showmemories.fragments.AddShowFragment"
+        android:label="AddShowFragment"
+        tools:layout="@layout/fragment_add_show">
+
+        <argument
+            android:name="show"
+            app:argType="fr.steph.showmemories.models.ShowModel" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/discoverFragment"
+        android:name="fr.steph.showmemories.fragments.DiscoverFragment"
+        android:label="DiscoverFragment"
+        tools:layout="@layout/fragment_discover">
+
+        <action
+            android:id="@+id/action_discoverFragment_to_discoverDetailsFragment"
+            app:destination="@id/discoverDetailsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/discoverDetailsFragment"
+        android:name="fr.steph.showmemories.fragments.DiscoverDetailsFragment"
+        android:label="DiscoverDetailsFragment"
+        tools:layout="@layout/fragment_discover_details" >
+
+        <argument
+            android:name="show_id"
+            app:argType="integer" />
+
+    </fragment>
+
+</navigation>

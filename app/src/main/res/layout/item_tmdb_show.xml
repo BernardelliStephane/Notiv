@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="show"
+            type="fr.steph.showmemories.models.tmdbmodels.TmdbTv" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp">
+
+        <ImageView
+            android:id="@+id/tmdb_show_image"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:contentDescription="@string/show_image_description"
+            android:padding="@dimen/item_margin"
+            android:transitionName="@{@string/tmdbtv_recycler_view_image_transition(show.id)}"
+            app:imageUrl="@{@string/tmdb_image_path(show.poster_path)}"
+            app:placeholder="@{@drawable/default_image}"
+            tools:src="@drawable/default_image" />
+
+        <TextView
+            android:id="@+id/tmdb_show_name"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_toStartOf="@id/add_show_button"
+            android:layout_toEndOf="@id/tmdb_show_image"
+            android:ellipsize="marquee"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            android:text="@{show.name}"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:autoSizeMaxTextSize="20sp"
+            app:autoSizeMinTextSize="12sp"
+            app:autoSizeTextType="uniform"
+            tools:text="@string/default_name" />
+
+        <ImageButton
+            android:id="@+id/add_show_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginHorizontal="@dimen/default_margin"
+            android:src="@drawable/ic_add" />
+
+    </RelativeLayout>
+
+</layout>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="red">#DF0B0B</color>
+    <color name="grey">#BBBBBB</color>
+
+    <!-- Transparent black -->
+    <color name="dark_transparency_10">#E6000000</color>
+    <color name="dark_transparency_20">#CC000000</color>
+    <color name="dark_transparency_30">#B3000000</color>
+    <color name="dark_transparency_40">#99000000</color>
+    <color name="dark_transparency_50">#80000000</color>
+    <color name="dark_transparency_60">#66000000</color>
+    <color name="dark_transparency_70">#4D000000</color>
+    <color name="dark_transparency_80">#33000000</color>
+    <color name="dark_transparency_90">#1A000000</color>
+
+    <!-- Bottom navigation -->
+    <color name="bottom_nav_background">#b0bec5</color>
+    <color name="bottom_nav_item">#5c6bc0</color>
+    <color name="bottom_nav_selected_item">#008080</color>
+
+    <!-- Color ideas : https://www.materialpalette.com/colors -->
+</resources>

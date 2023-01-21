@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="show"
+            type="fr.steph.showmemories.models.ShowModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="4dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/show_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/show_image_description"
+                android:scaleType="center"
+                android:transitionName="@{@string/show_recycler_view_image_transition(show.id)}"
+                app:imageUrl="@{show.imageUrl}"
+                app:placeholder="@{@drawable/default_image}"
+                tools:src="@drawable/default_show_image" />
+
+        </androidx.cardview.widget.CardView>
+
+        <View
+            android:id="@+id/horizontal_view_separation"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/show_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/item_margin"
+            android:text="@{show.name}"
+            app:layout_constraintBottom_toTopOf="@id/horizontal_view_separation"
+            app:layout_constraintStart_toEndOf="@+id/cardView"
+            tools:text="@string/default_name" />
+
+        <TextView
+            android:id="@+id/show_watch_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/item_margin"
+            app:dateAsText="@{show.watchDate}"
+            app:layout_constraintStart_toEndOf="@+id/cardView"
+            app:layout_constraintTop_toBottomOf="@id/horizontal_view_separation"
+            tools:text="@string/default_date" />
+
+        <TextView
+            android:id="@+id/show_note"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/default_margin"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="@dimen/default_margin"
+            android:text="@{Integer.toString(show.note)}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/menu_icon"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/default_number" />
+
+        <ImageView
+            android:id="@+id/menu_icon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:contentDescription="@string/show_management_options_icon"
+            android:padding="@dimen/little_margin"
+            android:src="@drawable/ic_more"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

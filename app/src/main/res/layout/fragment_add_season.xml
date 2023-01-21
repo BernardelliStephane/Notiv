@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="fr.steph.showmemories.viewmodels.AddSeasonViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:id="@+id/popup_season_scroll_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:overScrollMode="never"
+            android:padding="@dimen/default_margin"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/popup_close_icon"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:contentDescription="@string/close_popup_icon_description"
+                        android:src="@drawable/ic_close_black"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <CheckBox
+                            android:id="@+id/popup_movie_checkbox"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:checked="@{viewModel.uiState.movie}" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_gravity="center"
+                            android:layout_toEndOf="@id/popup_movie_checkbox"
+                            android:text="@string/movie_checkbox"
+                            android:textSize="10sp"
+                            android:textStyle="italic"
+                            tools:ignore="SmallSp" />
+
+                    </RelativeLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/default_margin"
+                    android:hint="@{popupMovieCheckbox.checked ? @string/movie_title : @string/season_number}"
+                    app:errorEnabled="true"
+                    app:errorRes="@{viewModel.uiState.nameErrorRes}"
+                    tools:hint="@string/season_number">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/popup_season_title_input"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@{viewModel.uiState.name}"
+                        app:inputType='@{popupMovieCheckbox.checked ? "cap_words" : "number"}' />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/default_margin"
+                    android:hint="@{popupMovieCheckbox.checked ? @string/movie_duration : @string/season_episode_count}"
+                    app:errorEnabled="true"
+                    app:errorRes="@{popupMovieCheckbox.checked ? viewModel.uiState.durationErrorRes : viewModel.uiState.episodeCountErrorRes}"
+                    tools:hint="@string/season_episode_count">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/popup_season_duration_input"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"
+                        android:text="@{popupMovieCheckbox.checked ? viewModel.uiState.movieDuration : viewModel.uiState.episodeCount}" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@{popupMovieCheckbox.checked ? @string/movie_note : @string/season_note}"
+                    app:errorEnabled="true"
+                    app:errorRes="@{viewModel.uiState.noteErrorRes}"
+                    tools:hint="@string/season_note">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/popup_season_note_input"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"
+                        android:text="@{viewModel.uiState.note}" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/default_margin"
+                    android:importantForAutofill="no"
+                    android:text="@string/show_date" />
+
+                <DatePicker
+                    android:id="@+id/popup_season_watch_date_input"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:calendarViewShown="false"
+                    android:datePickerMode="spinner" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/default_margin"
+                    android:hint="@{popupMovieCheckbox.checked ? @string/movie_summary : @string/season_summary}"
+                    tools:hint="@string/season_summary">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/popup_season_summary_input"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textMultiLine|textLongMessage"
+                        android:text="@{viewModel.uiState.summary}" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/default_margin"
+                    android:hint="@{popupMovieCheckbox.checked ? @string/movie_review : @string/season_review}"
+                    tools:hint="@string/season_review">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/popup_season_review_input"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textMultiLine|textLongMessage"
+                        android:text="@{viewModel.uiState.review}" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <Button
+                    android:id="@+id/popup_confirm_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:layout_marginTop="@dimen/default_margin"
+                    android:background="@color/cardview_dark_background"
+                    android:text="@string/confirm_button"
+                    android:textColor="@color/white"
+                    android:textSize="24sp" />
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:visibility="@{viewModel.uiState.isSubmitting}"
+            tools:visibility="gone" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

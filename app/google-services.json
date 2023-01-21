@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "284348820895",
+    "firebase_url": "https://tv-memories-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "tv-memories",
+    "storage_bucket": "tv-memories.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:284348820895:android:3a925ca149d82c065261aa",
+        "android_client_info": {
+          "package_name": "fr.steph.showmemories"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "284348820895-f01gn68di9oeuj10f7dbvk1m41mlhq1j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD-pAngpMMIUOrlNEW03uSy3DHe-cwePgU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "284348820895-f01gn68di9oeuj10f7dbvk1m41mlhq1j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:284348820895:android:4ac273e0c378f9465261aa",
+        "android_client_info": {
+          "package_name": "fr.steph.tvmemories"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "284348820895-f01gn68di9oeuj10f7dbvk1m41mlhq1j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD-pAngpMMIUOrlNEW03uSy3DHe-cwePgU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "284348820895-f01gn68di9oeuj10f7dbvk1m41mlhq1j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
