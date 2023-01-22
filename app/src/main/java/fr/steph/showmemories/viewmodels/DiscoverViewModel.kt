@@ -13,15 +13,18 @@ import java.util.*
 class DiscoverViewModel(private val repo: TmdbShowRepository = TmdbShowRepository()) : ViewModel() {
 
     private var currentLanguage = "en-US"
-    private val currentQuery = MutableStateFlow("")
 
-    val tmdbTv: MutableSharedFlow<Resource> = MutableSharedFlow()
+    private val _currentQuery = MutableStateFlow("")
+    val currentQuery: StateFlow<String> = _currentQuery
+
+    private val _tmdbTv: MutableSharedFlow<Resource> = MutableSharedFlow()
+    val tmdbTv: SharedFlow<Resource> = _tmdbTv
 
     @OptIn(ExperimentalCoroutinesApi::class)
     val shows = currentQuery.flatMapLatest {
-        if (it.isBlank()) getTrendingShows(currentLanguage).cachedIn(viewModelScope)
-        else searchShows(it, currentLanguage).cachedIn(viewModelScope)
-    }
+        if (it.isBlank()) getTrendingShows(currentLanguage)
+        else searchShows(it.trim(), currentLanguage)
+    }.cachedIn(viewModelScope)
 
     private fun getTrendingShows(language: String) =
         repo.getTrendingShows(language)
@@ -31,9 +34,9 @@ class DiscoverViewModel(private val repo: TmdbShowRepository = TmdbShowRepositor
         repo.searchShows(query, language)
 
     fun getShowInfo(id: Int) = viewModelScope.launch {
-        tmdbTv.emit(Resource.Loading)
+        _tmdbTv.emit(Resource.Loading)
         val response = repo.getShowInfo(id)
-        tmdbTv.emit(handleResponse(response))
+        _tmdbTv.emit(handleResponse(response))
     }
 
     private fun handleResponse(response: Response<TmdbTv>) : Resource {
@@ -47,7 +50,7 @@ class DiscoverViewModel(private val repo: TmdbShowRepository = TmdbShowRepositor
     }
 
     fun queryChanged(query: String) = viewModelScope.launch {
-        currentQuery.emit(query)
+        _currentQuery.emit(query)
     }
 
     fun setLanguage(language: Locale) {

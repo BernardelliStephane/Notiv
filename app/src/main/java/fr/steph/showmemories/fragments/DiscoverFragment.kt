@@ -86,6 +86,7 @@ class DiscoverFragment : Fragment(R.layout.fragment_discover) {
                     job?.cancel()
                     job = MainScope().launch {
                         delay(500L)
+                        if(newText != discoverViewModel.currentQuery.value) binding.discoverRecyclerView.scrollToPosition(0)
                         discoverViewModel.queryChanged(newText)
                     }
                     return false
@@ -98,7 +99,6 @@ class DiscoverFragment : Fragment(R.layout.fragment_discover) {
         viewLifecycleOwner.lifecycleScope.launch {
             discoverViewModel.shows.collectLatest {
                 tmdbShowsAdapter.submitData(it)
-                binding.discoverRecyclerView.scrollToPosition(0)
             }
         }
 

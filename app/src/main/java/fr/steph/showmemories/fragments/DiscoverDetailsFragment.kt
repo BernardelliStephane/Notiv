@@ -7,7 +7,6 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
-import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
@@ -72,24 +71,6 @@ class DiscoverDetailsFragment : Fragment(R.layout.fragment_discover_details) {
                 binding.discoverDetailsProgressBar.isVisible = it is DiscoverViewModel.Resource.Loading
             }
         }
-        /*discoverViewModel.tmdbTv.observe(viewLifecycleOwner) {
-            when(it) {
-                is DiscoverViewModel.Resource.Error -> {
-                    // Handle error
-                }
-                is DiscoverViewModel.Resource.Success -> {
-                    binding.detailsToolbar.title = it.data.name
-                    Glide.with(this)
-                        .load(this.getString(R.string.tmdb_image_path, it.data.backdrop_path))
-                        .placeholder(R.drawable.default_image)
-                        .into(binding.detailsShowImage)
-
-                    // Populate views
-                }
-                else -> {}
-            }
-            binding.discoverDetailsProgressBar.isVisible = it is DiscoverViewModel.Resource.Loading
-        }*/
     }
 
     override fun onDestroyView() {
