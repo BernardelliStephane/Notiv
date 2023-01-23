@@ -44,9 +44,9 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             }
 
            itemClickedListener = { show, image ->
-                val extras = FragmentNavigatorExtras(image to getString(R.string.show_details_image_transition))
-                val action = HomeFragmentDirections.actionNavigationHomeToDetailsFragment(show)
-                findNavController(view).navigate(action, extras)
+               val extras = FragmentNavigatorExtras(image to getString(R.string.show_details_image_transition))
+               val action = HomeFragmentDirections.actionNavigationHomeToDetailsFragment(show)
+               findNavController(view).navigate(action, extras)
             }
         }
 

@@ -22,7 +22,7 @@ class RetrofitInstance {
                 .build()
         }
 
-        val api by lazy {
+        val api: ShowsAPI by lazy {
             retrofit.create(ShowsAPI::class.java)
         }
     }

@@ -89,7 +89,10 @@
     <string name="movie_deletion_failure">An error occurred while deleting the movie</string>
     <string name="image_upload_failure">An error occurred while uploading the image</string>
     <string name="show_fetching_failure">An error occurred while fetching the shows</string>
-    <string name="no_internet_connexion">No connexion detected</string>
+    <string name="no_internet_connexion">No internet connexion</string>
+    <string name="network_failure">Network Failure</string>
+    <string name="connexion_timeout">Connexion timeout</string>
+    <string name="conversion_error">Conversion error</string>
 
     <!-- Form errors -->
     <string name="mandatory_field_error">This field is mandatory</string>

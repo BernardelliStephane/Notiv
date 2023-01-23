@@ -53,6 +53,8 @@ class DiscoverFragment : Fragment(R.layout.fragment_discover) {
 
         connectivityChecker = ConnectivityChecker(requireContext())
 
+        discoverViewModel.setConnectivityChecker(connectivityChecker)
+
         tmdbShowsAdapter = TmdbShowAdapter().apply {
             itemClickedListener = { show, image ->
                 val extras = FragmentNavigatorExtras(image to getString(R.string.tmdbtv_details_image_transition))

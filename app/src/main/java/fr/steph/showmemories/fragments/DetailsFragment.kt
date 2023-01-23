@@ -43,7 +43,6 @@ class DetailsFragment : Fragment(R.layout.fragment_details) {
 
         val animation = TransitionInflater.from(requireContext()).inflateTransition(android.R.transition.move).setDuration(300)
         sharedElementEnterTransition = animation
-        sharedElementReturnTransition = animation
 
         currentShow = args.show
 
@@ -53,7 +52,6 @@ class DetailsFragment : Fragment(R.layout.fragment_details) {
 
     @SuppressLint("NewApi")
     private fun initializeComponents(view: View) {
-
         seasonAdapter = SeasonAdapter(requireContext()).apply {
             itemDeletedListener = { season ->
                 showsViewModel.deleteSeason(currentShow, season)
@@ -68,17 +66,17 @@ class DetailsFragment : Fragment(R.layout.fragment_details) {
         binding.apply {
             seasonsRecyclerView.adapter = seasonAdapter
 
+            Glide.with(this@DetailsFragment)
+                .load(currentShow.imageUrl)
+                .apply(RequestOptions().dontTransform())
+                .placeholder(R.drawable.default_image)
+                .into(detailsShowImage)
+
             detailsToolbar.title = currentShow.name
             detailsShowNote.text = this@DetailsFragment.getString(R.string.note, currentShow.note)
             detailsShowDate.text = DateTimeFormatter.ofPattern("dd-MM-yyyy").format(LocalDate.ofEpochDay(currentShow.watchDate))
             if(currentShow.synopsis.isNotBlank()) detailsShowSynopsis.text = currentShow.synopsis
             if(currentShow.review.isNotBlank()) detailsShowReview.text = currentShow.review
-
-            Glide.with(this@DetailsFragment)
-                .load(currentShow.imageUrl)
-                .placeholder(R.drawable.default_image)
-                .apply(RequestOptions().dontTransform())
-                .into(detailsShowImage)
 
             detailsToolbar.setNavigationOnClickListener {
                 Navigation.findNavController(view).navigateUp()

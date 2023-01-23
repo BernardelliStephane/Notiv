@@ -1,8 +1,6 @@
 package fr.steph.showmemories.viewmodels
 
 import android.net.Uri
-import android.os.StrictMode
-import android.os.StrictMode.ThreadPolicy
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

@@ -6,15 +6,14 @@ import android.view.View
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
+import com.google.android.material.snackbar.BaseTransientBottomBar
+import com.google.android.material.snackbar.Snackbar
 import fr.steph.showmemories.R
 import fr.steph.showmemories.databinding.FragmentDiscoverDetailsBinding
 import fr.steph.showmemories.viewmodels.DiscoverViewModel
-import kotlinx.coroutines.flow.collectLatest
-import kotlinx.coroutines.launch
 
 class DiscoverDetailsFragment : Fragment(R.layout.fragment_discover_details) {
 
@@ -25,6 +24,9 @@ class DiscoverDetailsFragment : Fragment(R.layout.fragment_discover_details) {
     private var _binding: FragmentDiscoverDetailsBinding? = null
     private val binding get() = _binding!!
 
+    // Show ID
+    private var showId: Int = 0
+
     // Navigation args
     private val args: DiscoverDetailsFragmentArgs by navArgs()
 
@@ -32,14 +34,16 @@ class DiscoverDetailsFragment : Fragment(R.layout.fragment_discover_details) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentDiscoverDetailsBinding.bind(view)
 
+        discoverViewModel.resetShowValue()
+
         val animation = TransitionInflater.from(requireContext()).inflateTransition(android.R.transition.move).setDuration(300)
         sharedElementEnterTransition = animation
 
-        val showId = args.showId
+        showId = args.showId
         discoverViewModel.getShowInfo(showId)
 
         initializeComponents(view)
-        initializeObservers()
+        initializeObservers(view)
     }
 
     private fun initializeComponents(view: View) {
@@ -50,11 +54,14 @@ class DiscoverDetailsFragment : Fragment(R.layout.fragment_discover_details) {
         }
     }
 
-    private fun initializeObservers() {
-        lifecycleScope.launch {
-            discoverViewModel.tmdbTv.collectLatest {
+    private fun initializeObservers(view: View) {
+            discoverViewModel.tmdbTv.observe(viewLifecycleOwner) {
+                binding.discoverDetailsProgressBar.isVisible = it is DiscoverViewModel.Resource.Loading
                 when(it) {
                     is DiscoverViewModel.Resource.Error -> {
+                        Snackbar.make(view, it.message, BaseTransientBottomBar.LENGTH_INDEFINITE).setAction(R.string.retry) {
+                            discoverViewModel.getShowInfo(showId)
+                        }.show()
                         // Handle error
                     }
                     is DiscoverViewModel.Resource.Success -> {
@@ -68,9 +75,8 @@ class DiscoverDetailsFragment : Fragment(R.layout.fragment_discover_details) {
                     }
                     else -> {}
                 }
-                binding.discoverDetailsProgressBar.isVisible = it is DiscoverViewModel.Resource.Loading
             }
-        }
+
     }
 
     override fun onDestroyView() {

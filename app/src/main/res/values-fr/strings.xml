@@ -104,5 +104,8 @@
     <string name="add_alternate_name_icon_description">Ajouter un nom alternatif</string>
     <string name="add_season_icon_description">Ajouter une saison</string>
     <string name="show_management_options_icon">Gérer la série</string>
+    <string name="conversion_error">Erreur de conversion</string>
+    <string name="connexion_timeout">Délai de connexion écoulé</string>
+    <string name="network_failure">Erreur de réseau</string>
 
 </resources>
