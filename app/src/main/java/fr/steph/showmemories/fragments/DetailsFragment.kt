@@ -6,7 +6,10 @@ import android.transition.TransitionInflater
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.NavController
+import androidx.navigation.NavDirections
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.FragmentNavigator
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
@@ -59,7 +62,7 @@ class DetailsFragment : Fragment(R.layout.fragment_details) {
 
             itemEditedListener = { season ->
                 val action = DetailsFragmentDirections.actionDetailsFragmentToAddSeasonFragment(currentShow, season)
-                Navigation.findNavController(view).navigate(action)
+                Navigation.findNavController(view).safeNavigate(action)
             }
         }
 
@@ -84,7 +87,7 @@ class DetailsFragment : Fragment(R.layout.fragment_details) {
 
             addSeasonButton.setOnClickListener {
                 val action = DetailsFragmentDirections.actionDetailsFragmentToAddSeasonFragment(currentShow, null)
-                Navigation.findNavController(view).navigate(action)
+                Navigation.findNavController(view).safeNavigate(action)
             }
         }
     }
@@ -95,6 +98,12 @@ class DetailsFragment : Fragment(R.layout.fragment_details) {
             currentShow = shows.single { it.id == currentShow.id }
             seasonList.addAll(currentShow.seasons)
             seasonAdapter.submitList(seasonList)
+        }
+    }
+
+    private fun NavController.safeNavigate(direction: NavDirections, extras: FragmentNavigator.Extras? = null) {
+        currentDestination?.getAction(direction.actionId)?.run {
+            extras?.let { navigate(direction, extras) } ?: navigate(direction)
         }
     }
 

@@ -42,25 +42,27 @@ class ShowAdapter(private val context: Context) : ListAdapter<ShowModel, ShowAda
             itemView.setOnClickListener{ itemClickedListener?.invoke(currentShow, binding.showImage) }
 
             binding.menuIcon.setOnClickListener{ menuIcon ->
-                val popupMenu = PopupMenu(context, menuIcon)
-                popupMenu.menuInflater.inflate(R.menu.show_management_menu, popupMenu.menu)
-                popupMenu.show()
-                popupMenu.setOnMenuItemClickListener {
-                    when(it.itemId){
-                        R.id.edit -> {
-                            itemEditedListener?.invoke(currentShow)
-                            return@setOnMenuItemClickListener true
+                PopupMenu(context, menuIcon).apply {
+                    menuInflater.inflate(R.menu.show_management_menu, menu)
+                    show()
+                    setOnMenuItemClickListener {
+                        when(it.itemId){
+                            R.id.edit -> {
+                                itemEditedListener?.invoke(currentShow)
+                                return@setOnMenuItemClickListener true
+                            }
+                            R.id.delete -> {
+                                AlertDialog.Builder(context).apply {
+                                    setTitle(context.getString(R.string.show_suppression_confirmation))
+                                    setCancelable(true)
+                                    setPositiveButton(context.getString(R.string.confirm_button)) { _, _ -> itemDeletedListener?.invoke(currentShow)}
+                                    setNegativeButton(context.getString(R.string.cancel_button)) { _, _ -> }
+                                    show()
+                                }
+                                return@setOnMenuItemClickListener true
+                            }
+                            else -> false
                         }
-                        R.id.delete -> {
-                            val builder = AlertDialog.Builder(context)
-                            builder.setTitle(context.getString(R.string.show_suppression_confirmation))
-                            builder.setCancelable(true)
-                            builder.setPositiveButton(context.getString(R.string.confirm_button)) { _, _ -> itemDeletedListener?.invoke(currentShow)}
-                            builder.setNegativeButton(context.getString(R.string.cancel_button)) { _, _ -> }
-                            builder.show()
-                            return@setOnMenuItemClickListener true
-                        }
-                        else -> false
                     }
                 }
             }

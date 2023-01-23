@@ -39,29 +39,29 @@ class SeasonAdapter(private val context: Context) : ListAdapter<SeasonModel, Sea
         holder.bind(currentSeason)
 
         holder.binding.seasonLayout.setOnHeadingImageClickListener { menuIcon ->
-            val popupMenu = PopupMenu(context, menuIcon)
-            popupMenu.menuInflater.inflate(R.menu.show_management_menu, popupMenu.menu)
-            popupMenu.show()
-            popupMenu.setOnMenuItemClickListener {
-                when(it.itemId){
-                    R.id.edit -> {
-                        itemEditedListener?.invoke(currentSeason)
-                        return@setOnMenuItemClickListener true
-                    }
-                    R.id.delete -> {
-                        val builder = AlertDialog.Builder(context)
-                        val builderTitle = when(currentSeason.movie){
-                            true -> context.getString(R.string.movie_suppression_confirmation)
-                            false -> context.getString(R.string.season_suppression_confirmation)
+            PopupMenu(context, menuIcon).apply {
+                menuInflater.inflate(R.menu.show_management_menu, menu)
+                show()
+                setOnMenuItemClickListener {
+                    when(it.itemId){
+                        R.id.edit -> {
+                            itemEditedListener?.invoke(currentSeason)
+                            return@setOnMenuItemClickListener true
                         }
-                        builder.setTitle(builderTitle)
-                        builder.setCancelable(true)
-                        builder.setPositiveButton(context.getString(R.string.confirm_button)) { _, _ -> itemDeletedListener?.invoke(currentSeason)}
-                        builder.setNegativeButton(context.getString(R.string.cancel_button)) { _, _ -> }
-                        builder.show()
-                        return@setOnMenuItemClickListener true
+                        R.id.delete -> {
+                            AlertDialog.Builder(context).apply {
+                                val builderTitle = if(currentSeason.movie) context.getString(R.string.movie_suppression_confirmation)
+                                else context.getString(R.string.season_suppression_confirmation)
+                                setTitle(builderTitle)
+                                setCancelable(true)
+                                setPositiveButton(context.getString(R.string.confirm_button)) { _, _ -> itemDeletedListener?.invoke(currentSeason)}
+                                setNegativeButton(context.getString(R.string.cancel_button)) { _, _ -> }
+                                show()
+                            }
+                            return@setOnMenuItemClickListener true
+                        }
+                        else -> false
                     }
-                    else -> false
                 }
             }
         }

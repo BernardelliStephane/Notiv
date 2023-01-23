@@ -7,7 +7,10 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.NavController
+import androidx.navigation.NavDirections
 import androidx.navigation.Navigation.findNavController
+import androidx.navigation.fragment.FragmentNavigator
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import fr.steph.showmemories.*
@@ -59,13 +62,13 @@ class CollectionFragment : Fragment(R.layout.fragment_collection) {
 
         showsAdapter.itemEditedListener = {
             val action = CollectionFragmentDirections.actionNavigationCollectionToAddShowFragment(it)
-            findNavController(view).navigate(action)
+            findNavController(view).safeNavigate(action)
         }
 
         showsAdapter.itemClickedListener = { show, image ->
             val extras = FragmentNavigatorExtras(image to getString(R.string.show_details_image_transition))
             val action = CollectionFragmentDirections.actionNavigationCollectionToDetailsFragment(show)
-            findNavController(view).navigate(action, extras)
+            findNavController(view).safeNavigate(action, extras)
         }
 
         // Hide Navigation Bar on Soft Keyboard Presence
@@ -90,6 +93,12 @@ class CollectionFragment : Fragment(R.layout.fragment_collection) {
                 if(isShowsUpdate) isShowsUpdate = false
                 else binding.collectionRecyclerView.scrollToPosition(0)
             }
+        }
+    }
+
+    private fun NavController.safeNavigate(direction: NavDirections, extras: FragmentNavigator.Extras? = null) {
+        currentDestination?.getAction(direction.actionId)?.run {
+            extras?.let { navigate(direction, extras) } ?: navigate(direction)
         }
     }
 

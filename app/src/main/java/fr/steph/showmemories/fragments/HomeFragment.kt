@@ -4,7 +4,10 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.NavController
+import androidx.navigation.NavDirections
 import androidx.navigation.Navigation.findNavController
+import androidx.navigation.fragment.FragmentNavigator
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import fr.steph.showmemories.*
 import fr.steph.showmemories.adapters.ShowAdapter
@@ -40,13 +43,13 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
             itemEditedListener = {
                 val action = HomeFragmentDirections.actionNavigationHomeToAddShowFragment(it)
-                findNavController(view).navigate(action)
+                findNavController(view).safeNavigate(action)
             }
 
            itemClickedListener = { show, image ->
                val extras = FragmentNavigatorExtras(image to getString(R.string.show_details_image_transition))
                val action = HomeFragmentDirections.actionNavigationHomeToDetailsFragment(show)
-               findNavController(view).navigate(action, extras)
+               findNavController(view).safeNavigate(action, extras)
             }
         }
 
@@ -61,7 +64,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
         binding.homeButtonAddShow.setOnClickListener {
             val action = HomeFragmentDirections.actionNavigationHomeToDiscoverFragment()
-            findNavController(view).navigate(action)
+            findNavController(view).safeNavigate(action)
         }
     }
 
@@ -72,6 +75,12 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 showList.addAll(it)
                 showsAdapter.submitList(showList)
             }
+        }
+    }
+
+    private fun NavController.safeNavigate(direction: NavDirections, extras: FragmentNavigator.Extras? = null) {
+        currentDestination?.getAction(direction.actionId)?.run {
+            extras?.let { navigate(direction, extras) } ?: navigate(direction)
         }
     }
 
