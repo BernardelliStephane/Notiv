@@ -14,7 +14,7 @@
             app:itemIconTint="@drawable/bottom_nav_colors"
             app:itemRippleColor="@null"
             app:itemTextColor="@drawable/bottom_nav_colors"
-            app:labelVisibilityMode="selected"
+            app:labelVisibilityMode="labeled"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

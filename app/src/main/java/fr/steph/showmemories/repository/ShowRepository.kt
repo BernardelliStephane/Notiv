@@ -10,7 +10,6 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.FirebaseStorage
-import com.google.firebase.storage.StorageReference
 import com.google.firebase.storage.UploadTask
 import fr.steph.showmemories.models.ShowModel
 import fr.steph.showmemories.repository.ShowRepository.Singleton.databaseRef
@@ -36,63 +35,48 @@ class ShowRepository {
         var showsListener: ValueEventListener? = null
     }
 
-    suspend fun addDatabaseListener() {
-        withContext(Dispatchers.Default) {
-            if (showsListener == null)
-                showsListener = databaseRef.addValueEventListener(object : ValueEventListener {
-                    override fun onDataChange(snapshot: DataSnapshot) {
-                        showList.clear()
+    suspend fun addDatabaseListener() = withContext(Dispatchers.Default) {
+        showsListener ?: databaseRef.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                showList.clear()
 
-                        for (ds in snapshot.children) {
-                            val show = ds.getValue(ShowModel::class.java)
-                            if (show != null) showList.add(show)
-                        }
-                        _shows.postValue(showList)
-                    }
+                for (ds in snapshot.children) {
+                    ds.getValue(ShowModel::class.java)?.let { showList.add(it) }
+                }
+                _shows.postValue(showList)
+            }
 
-                    override fun onCancelled(p0: DatabaseError) {}
-                })
-        }
+            override fun onCancelled(p0: DatabaseError) {}
+        })
     }
 
-    suspend fun insertShow(show: ShowModel, successCallback: () -> Unit, failureCallback: () -> Unit) {
-        withContext(Dispatchers.IO) {
-            databaseRef.child(show.id).setValue(show)
-                .addOnSuccessListener { successCallback() }
-                .addOnFailureListener { failureCallback() }
-        }
+    suspend fun insertShow(show: ShowModel, successCallback: () -> Unit, failureCallback: () -> Unit) = withContext(Dispatchers.IO) {
+        databaseRef.child(show.id).setValue(show)
+            .addOnSuccessListener { successCallback() }
+            .addOnFailureListener { failureCallback() }
     }
 
-    suspend fun deleteShow(show: ShowModel, successCallback: () -> Unit, failureCallback: () -> Unit) {
-        withContext(Dispatchers.IO) {
-            deleteImage(show.imageUrl)
-            databaseRef.child(show.id).removeValue()
-                .addOnSuccessListener { successCallback() }
-                .addOnFailureListener { failureCallback() }
-        }
+    suspend fun deleteShow(show: ShowModel, successCallback: () -> Unit, failureCallback: () -> Unit) = withContext(Dispatchers.IO) {
+        deleteImage(show.imageUrl)
+        databaseRef.child(show.id).removeValue()
+            .addOnSuccessListener { successCallback() }
+            .addOnFailureListener { failureCallback() }
     }
 
-    // Upload files on storage
-    suspend fun uploadImage(file: Uri, callback: (Uri) -> Unit, failureCallback: () -> Unit) {
-        withContext(Dispatchers.IO) {
-            val fileName = UUID.randomUUID().toString() + ".jpg"
-            val ref = storageRef.child(fileName)
-            val uploadTask = ref.putFile(file)
+    suspend fun uploadImage(file: Uri, callback: (Uri) -> Unit, failureCallback: () -> Unit) = withContext(Dispatchers.IO) {
+        val fileName = UUID.randomUUID().toString() + ".jpg"
+        val ref = storageRef.child(fileName)
+        val uploadTask = ref.putFile(file)
 
-            uploadTask.continueWithTask(Continuation<UploadTask.TaskSnapshot, Task<Uri>> { task ->
-                if (!task.isSuccessful) task.exception?.let { throw it }
-                return@Continuation ref.downloadUrl
-            }).addOnCompleteListener { task ->
-                if (task.isSuccessful) callback(task.result)
-            }.addOnFailureListener { failureCallback() }
-        }
+        uploadTask.continueWithTask(Continuation<UploadTask.TaskSnapshot, Task<Uri>> { task ->
+            if (!task.isSuccessful) task.exception?.let { throw it }
+            return@Continuation ref.downloadUrl
+        }).addOnCompleteListener { task ->
+            if (task.isSuccessful) callback(task.result)
+        }.addOnFailureListener { failureCallback() }
     }
 
-    suspend fun deleteImage(imageUrl: String) {
-        withContext(Dispatchers.IO) {
-            val photoRef: StorageReference =
-                FirebaseStorage.getInstance().getReferenceFromUrl(imageUrl)
-            photoRef.delete()
-        }
+    suspend fun deleteImage(imageUrl: String) = withContext(Dispatchers.IO) {
+        FirebaseStorage.getInstance().getReferenceFromUrl(imageUrl).delete()
     }
 }

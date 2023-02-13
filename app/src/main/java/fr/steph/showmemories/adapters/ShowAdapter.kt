@@ -31,9 +31,7 @@ class ShowAdapter(private val context: Context) : ListAdapter<ShowModel, ShowAda
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder.from(parent)
-    }
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder = ViewHolder.from(parent)
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val currentShow = getItem(position)
