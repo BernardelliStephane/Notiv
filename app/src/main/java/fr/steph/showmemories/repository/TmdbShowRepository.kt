@@ -6,7 +6,7 @@ import androidx.paging.PagingData
 import fr.steph.showmemories.api.RetrofitInstance
 import fr.steph.showmemories.api.ShowsAPI.Companion.NETWORK_PAGE_SIZE
 import fr.steph.showmemories.api.ShowsPagingSource
-import fr.steph.showmemories.models.tmdbmodels.TmdbTv
+import fr.steph.showmemories.model.tmdbmodels.TmdbTv
 import kotlinx.coroutines.flow.Flow
 
 class TmdbShowRepository {

@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="fr.steph.showmemories.viewmodels.FilterViewModel" />
+            type="fr.steph.showmemories.viewmodel.FilterViewModel" />
     </data>
 
     <RelativeLayout
@@ -16,7 +16,7 @@
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/fragment_container_view"
-            android:name="fr.steph.showmemories.fragments.FilterFragment"
+            android:name="fr.steph.showmemories.fragment.FilterFragment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true" />

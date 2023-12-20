@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="fr.steph.showmemories.viewmodels.DiscoverViewModel" />
+            type="fr.steph.showmemories.viewmodel.DiscoverViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

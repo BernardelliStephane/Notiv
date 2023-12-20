@@ -3,7 +3,7 @@ package fr.steph.showmemories.api
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import fr.steph.showmemories.api.ShowsAPI.Companion.STARTING_PAGE_INDEX
-import fr.steph.showmemories.models.tmdbmodels.TmdbTv
+import fr.steph.showmemories.model.tmdbmodels.TmdbTv
 import retrofit2.HttpException
 import java.io.IOException
 

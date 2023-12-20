@@ -1,8 +1,8 @@
 package fr.steph.showmemories.api
 
 import fr.steph.showmemories.BuildConfig
-import fr.steph.showmemories.models.tmdbmodels.TmdbTv
-import fr.steph.showmemories.models.tmdbmodels.TmdbTvResponse
+import fr.steph.showmemories.model.tmdbmodels.TmdbTv
+import fr.steph.showmemories.model.tmdbmodels.TmdbTvResponse
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path

@@ -11,7 +11,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.UploadTask
-import fr.steph.showmemories.models.ShowModel
+import fr.steph.showmemories.model.ShowModel
 import fr.steph.showmemories.repository.ShowRepository.Singleton.databaseRef
 import fr.steph.showmemories.repository.ShowRepository.Singleton.showList
 import fr.steph.showmemories.repository.ShowRepository.Singleton.showsListener

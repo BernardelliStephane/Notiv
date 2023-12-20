@@ -13,7 +13,7 @@ import androidx.navigation.NavDestination
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import fr.steph.showmemories.databinding.ActivityShowsBinding
-import fr.steph.showmemories.viewmodels.ShowsViewModel
+import fr.steph.showmemories.viewmodel.ShowsViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 

@@ -7,7 +7,7 @@
 
         <variable
             name="season"
-            type="fr.steph.showmemories.models.SeasonModel" />
+            type="fr.steph.showmemories.model.SeasonModel" />
     </data>
 
     <fr.steph.accordionlayout.AccordionLayout
