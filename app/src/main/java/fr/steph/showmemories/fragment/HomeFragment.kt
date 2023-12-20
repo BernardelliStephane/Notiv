@@ -34,16 +34,16 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     private fun initializeComponents(view: View) {
         showsAdapter = ShowAdapter(requireContext()).apply {
-            itemDeletedListener = {
+            itemDeletedCallback = {
                 showsViewModel.deleteShow(it)
             }
 
-            itemEditedListener = {
+            itemEditedCallback = {
                 val action = HomeFragmentDirections.actionNavigationHomeToAddShowFragment(it)
                 safeNavigate(action)
             }
 
-           itemClickedListener = { show, image ->
+           itemClickedCallback = { show, image ->
                val extras = FragmentNavigatorExtras(image to getString(R.string.show_details_image_transition))
                val action = HomeFragmentDirections.actionNavigationHomeToDetailsFragment(show)
                safeNavigate(action, extras)

@@ -13,8 +13,8 @@ import fr.steph.showmemories.databinding.ItemSeasonBinding
 import fr.steph.showmemories.model.SeasonModel
 
 class SeasonAdapter(private val context: Context) : ListAdapter<SeasonModel, SeasonAdapter.ViewHolder>(SeasonDiffUtil()) {
-    var itemEditedListener: ((SeasonModel) -> Unit)? = null
-    var itemDeletedListener: ((SeasonModel) -> Unit)? = null
+    var itemEditedCallback: ((SeasonModel) -> Unit) = {}
+    var itemDeletedCallback: ((SeasonModel) -> Unit) = {}
 
     class ViewHolder (val binding : ItemSeasonBinding) : RecyclerView.ViewHolder(binding.root){
         fun bind(season: SeasonModel) {
@@ -45,7 +45,7 @@ class SeasonAdapter(private val context: Context) : ListAdapter<SeasonModel, Sea
                 setOnMenuItemClickListener {
                     when(it.itemId){
                         R.id.edit -> {
-                            itemEditedListener?.invoke(currentSeason)
+                            itemEditedCallback(currentSeason)
                             return@setOnMenuItemClickListener true
                         }
                         R.id.delete -> {
@@ -54,7 +54,7 @@ class SeasonAdapter(private val context: Context) : ListAdapter<SeasonModel, Sea
                                 else context.getString(R.string.season_suppression_confirmation)
                                 setTitle(builderTitle)
                                 setCancelable(true)
-                                setPositiveButton(context.getString(R.string.confirm_button)) { _, _ -> itemDeletedListener?.invoke(currentSeason)}
+                                setPositiveButton(context.getString(R.string.confirm_button)) { _, _ -> itemDeletedCallback(currentSeason)}
                                 setNegativeButton(context.getString(R.string.cancel_button)) { _, _ -> }
                                 show()
                             }

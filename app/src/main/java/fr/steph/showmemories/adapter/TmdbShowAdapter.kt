@@ -10,7 +10,7 @@ import fr.steph.showmemories.databinding.ItemTmdbShowBinding
 import fr.steph.showmemories.model.tmdbmodels.TmdbTv
 
 class TmdbShowAdapter : PagingDataAdapter<TmdbTv, TmdbShowAdapter.ViewHolder>(TmdbShowDiffUtil()) {
-    var itemClickedListener: ((TmdbTv, ImageView) -> Unit)? = null
+    var itemClickedCallback: ((TmdbTv, ImageView) -> Unit) = { _, _ -> }
 
     class ViewHolder (val binding : ItemTmdbShowBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(show: TmdbTv) {
@@ -34,7 +34,7 @@ class TmdbShowAdapter : PagingDataAdapter<TmdbTv, TmdbShowAdapter.ViewHolder>(Tm
         val currentShow = getItem(position)
         currentShow?.let { show ->
             holder.bind(show)
-            holder.itemView.setOnClickListener{ itemClickedListener?.invoke(show, holder.binding.tmdbShowImage) }
+            holder.itemView.setOnClickListener{ itemClickedCallback(show, holder.binding.tmdbShowImage) }
         }
     }
 

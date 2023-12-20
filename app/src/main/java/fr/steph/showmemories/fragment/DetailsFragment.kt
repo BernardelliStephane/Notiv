@@ -54,11 +54,11 @@ class DetailsFragment : Fragment(R.layout.fragment_details) {
     @SuppressLint("NewApi")
     private fun initializeComponents(view: View) {
         seasonAdapter = SeasonAdapter(requireContext()).apply {
-            itemDeletedListener = { season ->
+            itemDeletedCallback = { season ->
                 showsViewModel.deleteSeason(currentShow, season)
             }
 
-            itemEditedListener = { season ->
+            itemEditedCallback = { season ->
                 val action = DetailsFragmentDirections.actionDetailsFragmentToAddSeasonFragment(currentShow, season)
                 safeNavigate(action)
             }

@@ -34,14 +34,13 @@ class DiscoverViewModel(private val repo: TmdbShowRepository = TmdbShowRepositor
     private fun getTrendingShows(language: String) =
         repo.getTrendingShows(language)
 
-
     private fun searchShows(query: String, language: String) =
         repo.searchShows(query, language)
 
     fun getShowInfo(id: Int) = viewModelScope.launch {
         _tmdbTv.postValue(Resource.Loading)
         try {
-            if(connectivityChecker.invoke()) {
+            if(connectivityChecker()) {
                 val response = repo.getShowInfo(id)
                 _tmdbTv.postValue(handleResponse(response))
             }

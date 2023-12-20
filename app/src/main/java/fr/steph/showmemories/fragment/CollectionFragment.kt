@@ -53,16 +53,16 @@ class CollectionFragment : Fragment(R.layout.fragment_collection) {
             }
         }
 
-        showsAdapter.itemDeletedListener = {
+        showsAdapter.itemDeletedCallback = {
             showsViewModel.deleteShow(it)
         }
 
-        showsAdapter.itemEditedListener = {
+        showsAdapter.itemEditedCallback = {
             val action = CollectionFragmentDirections.actionNavigationCollectionToAddShowFragment(it)
             safeNavigate(action)
         }
 
-        showsAdapter.itemClickedListener = { show, image ->
+        showsAdapter.itemClickedCallback = { show, image ->
             val extras = FragmentNavigatorExtras(image to getString(R.string.show_details_image_transition))
             val action = CollectionFragmentDirections.actionNavigationCollectionToDetailsFragment(show)
             safeNavigate(action, extras)

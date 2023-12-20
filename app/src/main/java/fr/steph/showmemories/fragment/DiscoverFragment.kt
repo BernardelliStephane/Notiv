@@ -56,7 +56,7 @@ class DiscoverFragment : Fragment(R.layout.fragment_discover) {
         discoverViewModel.setConnectivityChecker(connectivityChecker)
 
         tmdbShowsAdapter = TmdbShowAdapter().apply {
-            itemClickedListener = { show, image ->
+            itemClickedCallback = { show, image ->
                 val extras = FragmentNavigatorExtras(image to getString(R.string.tmdbtv_details_image_transition))
                 val action = DiscoverFragmentDirections.actionDiscoverFragmentToDiscoverDetailsFragment(show.id)
                 safeNavigate(action, extras)
@@ -113,7 +113,7 @@ class DiscoverFragment : Fragment(R.layout.fragment_discover) {
                 }
 
                 if (it.refresh is LoadState.Error) {
-                    val message = if (connectivityChecker.invoke()) R.string.show_fetching_failure
+                    val message = if (connectivityChecker()) R.string.show_fetching_failure
                         else R.string.no_internet_connexion
 
                     Snackbar.make(view, message, LENGTH_INDEFINITE)

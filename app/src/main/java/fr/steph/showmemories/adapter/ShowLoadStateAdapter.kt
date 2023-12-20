@@ -23,13 +23,13 @@ class ShowLoadStateAdapter(private val context: Context, private val retry: () -
         private val connectivityChecker = ConnectivityChecker(context)
 
         init {
-            binding.btnRetry.setOnClickListener { retry.invoke() }
+            binding.btnRetry.setOnClickListener { retry() }
         }
 
         fun bind(loadState: LoadState) {
             binding.apply {
                 if(loadState is LoadState.Error) errorDescription.text = context.getString(
-                    if (connectivityChecker.invoke()) R.string.show_fetching_failure
+                    if (connectivityChecker()) R.string.show_fetching_failure
                     else R.string.no_internet_connexion
                 )
                 progressLoadMore.isVisible = loadState is LoadState.Loading

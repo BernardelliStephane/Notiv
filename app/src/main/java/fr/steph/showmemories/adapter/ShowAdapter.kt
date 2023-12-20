@@ -13,9 +13,9 @@ import fr.steph.showmemories.databinding.ItemShowBinding
 import fr.steph.showmemories.model.ShowModel
 
 class ShowAdapter(private val context: Context) : ListAdapter<ShowModel, ShowAdapter.ViewHolder>(ShowDiffUtil()) {
-    var itemClickedListener: ((ShowModel, ImageView) -> Unit)? = null
-    var itemEditedListener: ((ShowModel) -> Unit)? = null
-    var itemDeletedListener: ((ShowModel) -> Unit)? = null
+    var itemClickedCallback: ((ShowModel, ImageView) -> Unit) = { _, _ -> }
+    var itemEditedCallback: ((ShowModel) -> Unit) = {}
+    var itemDeletedCallback: ((ShowModel) -> Unit) = {}
 
     class ViewHolder (val binding : ItemShowBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(show: ShowModel) {
@@ -37,7 +37,7 @@ class ShowAdapter(private val context: Context) : ListAdapter<ShowModel, ShowAda
         val currentShow = getItem(position)
         holder.apply {
             bind(currentShow)
-            itemView.setOnClickListener{ itemClickedListener?.invoke(currentShow, binding.showImage) }
+            itemView.setOnClickListener{ itemClickedCallback(currentShow, binding.showImage) }
 
             binding.menuIcon.setOnClickListener{ menuIcon ->
                 PopupMenu(context, menuIcon).apply {
@@ -46,14 +46,14 @@ class ShowAdapter(private val context: Context) : ListAdapter<ShowModel, ShowAda
                     setOnMenuItemClickListener {
                         when(it.itemId){
                             R.id.edit -> {
-                                itemEditedListener?.invoke(currentShow)
+                                itemEditedCallback(currentShow)
                                 return@setOnMenuItemClickListener true
                             }
                             R.id.delete -> {
                                 AlertDialog.Builder(context).apply {
                                     setTitle(context.getString(R.string.show_suppression_confirmation))
                                     setCancelable(true)
-                                    setPositiveButton(context.getString(R.string.confirm_button)) { _, _ -> itemDeletedListener?.invoke(currentShow)}
+                                    setPositiveButton(context.getString(R.string.confirm_button)) { _, _ -> itemDeletedCallback(currentShow)}
                                     setNegativeButton(context.getString(R.string.cancel_button)) { _, _ -> }
                                     show()
                                 }

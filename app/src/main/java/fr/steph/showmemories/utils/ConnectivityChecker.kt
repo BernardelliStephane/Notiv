@@ -6,7 +6,7 @@ import android.net.NetworkCapabilities
 
 class ConnectivityChecker(private val applicationContext: Context) {
 
-    operator fun invoke() : Boolean {
+    operator fun invoke(): Boolean {
         try {
             val connectivityManager = applicationContext.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
             val activeNetwork = connectivityManager.activeNetwork ?: return false
