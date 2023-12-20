@@ -4,15 +4,12 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.navigation.NavController
-import androidx.navigation.NavDirections
-import androidx.navigation.Navigation.findNavController
-import androidx.navigation.fragment.FragmentNavigator
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import fr.steph.showmemories.*
 import fr.steph.showmemories.adapter.ShowAdapter
 import fr.steph.showmemories.databinding.FragmentHomeBinding
 import fr.steph.showmemories.model.ShowModel
+import fr.steph.showmemories.utils.extension.safeNavigate
 import fr.steph.showmemories.viewmodel.ShowsViewModel
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
@@ -43,13 +40,13 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
             itemEditedListener = {
                 val action = HomeFragmentDirections.actionNavigationHomeToAddShowFragment(it)
-                findNavController(view).safeNavigate(action)
+                safeNavigate(action)
             }
 
            itemClickedListener = { show, image ->
                val extras = FragmentNavigatorExtras(image to getString(R.string.show_details_image_transition))
                val action = HomeFragmentDirections.actionNavigationHomeToDetailsFragment(show)
-               findNavController(view).safeNavigate(action, extras)
+               safeNavigate(action, extras)
             }
         }
 
@@ -64,7 +61,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
         binding.homeButtonAddShow.setOnClickListener {
             val action = HomeFragmentDirections.actionNavigationHomeToDiscoverFragment()
-            findNavController(view).safeNavigate(action)
+            safeNavigate(action)
         }
     }
 
@@ -75,12 +72,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 showList.addAll(it)
                 showsAdapter.submitList(showList)
             }
-        }
-    }
-
-    private fun NavController.safeNavigate(direction: NavDirections, extras: FragmentNavigator.Extras? = null) {
-        currentDestination?.getAction(direction.actionId)?.run {
-            extras?.let { navigate(direction, extras) } ?: navigate(direction)
         }
     }
 

@@ -7,10 +7,6 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.NavController
-import androidx.navigation.NavDirections
-import androidx.navigation.Navigation
-import androidx.navigation.fragment.FragmentNavigator
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.paging.LoadState
 import com.google.android.material.snackbar.BaseTransientBottomBar.LENGTH_INDEFINITE
@@ -20,6 +16,7 @@ import fr.steph.showmemories.adapter.ShowLoadStateAdapter
 import fr.steph.showmemories.adapter.TmdbShowAdapter
 import fr.steph.showmemories.databinding.FragmentDiscoverBinding
 import fr.steph.showmemories.utils.ConnectivityChecker
+import fr.steph.showmemories.utils.extension.safeNavigate
 import fr.steph.showmemories.viewmodel.DiscoverViewModel
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.MainScope
@@ -62,7 +59,7 @@ class DiscoverFragment : Fragment(R.layout.fragment_discover) {
             itemClickedListener = { show, image ->
                 val extras = FragmentNavigatorExtras(image to getString(R.string.tmdbtv_details_image_transition))
                 val action = DiscoverFragmentDirections.actionDiscoverFragmentToDiscoverDetailsFragment(show.id)
-                Navigation.findNavController(view).safeNavigate(action, extras)
+                safeNavigate(action, extras)
             }
         }
 
@@ -124,12 +121,6 @@ class DiscoverFragment : Fragment(R.layout.fragment_discover) {
                         .show()
                 }
             }
-        }
-    }
-
-    private fun NavController.safeNavigate(direction: NavDirections, extras: FragmentNavigator.Extras?) {
-        currentDestination?.getAction(direction.actionId)?.run {
-            extras?.let { navigate(direction, extras) } ?: navigate(direction)
         }
     }
 
